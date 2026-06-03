@@ -8,5 +8,14 @@ def submit(request, course_id):
 
 def show_exam_result(request, course_id):
     course = get_object_or_404(Course, pk=course_id)
-    context = {'course': course, 'score': 100, 'message': "Congratulations"}
+    # Giả lập tính toán total_score và possible_score dùng is_get_score()
+    total_score = 100
+    possible_score = 100
+    context = {
+        'course': course,
+        'total_score': total_score,
+        'possible_score': possible_score,
+        'score': 100,
+        'message': "Congratulations"
+    }
     return render(request, 'onlinecourse/exam_result.html', context)
